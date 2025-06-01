@@ -68,9 +68,9 @@ const Sidebar = ({ isCollapsed, onToggle, isMobileOpen, onMobileClose }) => {
         <div className="flex flex-col h-full">
           {/* Navigation */}
           <nav className="flex-1 px-3 py-4 space-y-2">
-            <div className="flex items-center justify-between h-16 px-4 border-b border-border">
+            <div className={`flex items-center mt-10 justify-between h-fit py-2 ${isCollapsed ? "px-0" : "px-4"}`}>
             {!isCollapsed && (
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center py-4 space-x-3">
                 <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                   <svg
                     width="20"
@@ -106,7 +106,6 @@ const Sidebar = ({ isCollapsed, onToggle, isMobileOpen, onMobileClose }) => {
 
             {navigationItems.map((item) => {
               const isActive = activeRoute === item.path;
-              
               return (
                 <button
                   key={item.path}
